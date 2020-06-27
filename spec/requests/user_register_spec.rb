@@ -5,8 +5,8 @@ describe 'users can sign up' do
     let(:user_params) do
       {
         user: {
-          name: "Jonh Doe",
-          email: "jonhdoe@example.com"
+          name: 'Jonh Doe',
+          email: 'jonhdoe@example.com'
         }
       }
     end
@@ -17,11 +17,11 @@ describe 'users can sign up' do
       expect(response).to have_http_status(:created)
     end
 
-    it "should create the users" do
+    it 'should create the users' do
       expect { post '/api/v1/usuario', params: user_params }.to change { User.count }.by(1)
     end
 
-    it "should create with name and email" do
+    it 'should create with name and email' do
       post '/api/v1/usuario', params: user_params
 
       json = JSON.parse(response.body, symbolize_names: true)
