@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users, path: 'usuario', only: :create
 
       resources :questionnaires, path: 'questionario'
+      resources :questions, path: 'pergunta'
     end
   end
 end
