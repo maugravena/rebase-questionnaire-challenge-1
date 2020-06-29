@@ -8,21 +8,21 @@ RSpec.describe Questionnaire, type: :model do
   it 'name must be required' do
     questionnaire = Questionnaire.new(description: 'Esse é um teste', limit_time: 2)
     expect(questionnaire).to_not be_valid
-    expect(questionnaire.errors[:name]).to include("can't be blank")
+    expect(questionnaire.errors[:name]).to include("não pode ficar em branco")
   end
 
   it 'description must be required' do
     questionnaire = Questionnaire.new(name: 'Matematica', limit_time: 2)
 
     expect(questionnaire).to_not be_valid
-    expect(questionnaire.errors[:description]).to include("can't be blank")
+    expect(questionnaire.errors[:description]).to include("não pode ficar em branco")
   end
 
   it 'limit_time must be required' do
     questionnaire = Questionnaire.new(name: 'Portugues', description: 'Esse é um teste')
 
     expect(questionnaire).to_not be_valid
-    expect(questionnaire.errors[:limit_time]).to include("can't be blank")
+    expect(questionnaire.errors[:limit_time]).to include("não pode ficar em branco")
   end
 
   it 'name must be unique' do

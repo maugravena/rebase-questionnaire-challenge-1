@@ -11,13 +11,13 @@ RSpec.describe Question, type: :model do
   it 'description must be required' do
     question = Question.new(points: 2)
     expect(question).to_not be_valid
-    expect(question.errors[:description]).to include("can't be blank")
+    expect(question.errors[:description]).to include("não pode ficar em branco")
   end
 
   it 'points must be required' do
     question = Question.new(description: 'Teste os seus conhecimentos')
 
     expect(question).to_not be_valid
-    expect(question.errors[:points]).to include("can't be blank")
+    expect(question.errors[:points]).to include("não pode ficar em branco")
   end
 end

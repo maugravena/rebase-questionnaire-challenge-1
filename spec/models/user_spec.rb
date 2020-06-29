@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     user = User.new(email: 'joana@teste.com')
 
     expect(user).to_not be_valid
-    expect(user.errors[:name]).to include("can't be blank")
+    expect(user.errors[:name]).to include("não pode ficar em branco")
   end
 
   it 'email must be required' do
@@ -13,6 +13,6 @@ RSpec.describe User, type: :model do
 
     expect(user).to_not be_valid
 
-    expect(user.errors[:email]).to include("can't be blank")
+    expect(user.errors[:email]).to include("não pode ficar em branco")
   end
 end

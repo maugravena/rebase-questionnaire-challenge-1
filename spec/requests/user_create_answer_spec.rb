@@ -66,7 +66,7 @@ describe 'users can create ansers' do
 
         json = JSON.parse(response.body, symbolize_names: true)
 
-        expect(json[:errors][:description]).to include("can't be blank")
+        expect(json[:errors][:description]).to include("não pode ficar em branco")
       end
     end
   end
