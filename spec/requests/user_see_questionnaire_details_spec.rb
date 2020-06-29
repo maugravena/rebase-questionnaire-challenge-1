@@ -3,15 +3,15 @@ require 'rails_helper'
 describe 'users can see questionnaire details' do
   context '#show' do
     let(:user) do
-      User.create!(name: "Joana", email: "joana@teste.com" )
+      User.create!(name: "Joana", email: "joana@teste.com")
     end
 
     let(:questionnaire) do
       Questionnaire.create!(
-                              name: 'Lógica',
-                              description: 'É um teste',
-                              limit_time: 2,
-                              user: user
+        name: 'Lógica',
+        description: 'É um teste',
+        limit_time: 2,
+        user: user
                             )
     end
 

@@ -9,7 +9,7 @@ class Api::V1::QuestionnairesController < ActionController::API
     @questionnaires = Questionnaire.find(params[:id])
     render json: @questionnaires
     rescue ActiveRecord::RecordNotFound # Ruby Error Handling
-    render status: 404, json: ''
+      render status: 404, json: ''
   end
 
   def create

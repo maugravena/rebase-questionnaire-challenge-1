@@ -3,11 +3,11 @@ require 'rails_helper'
 describe 'users can create questions' do
   context '#create' do
     let(:user) do
-      User.create!(name: "Joana", email: "joana@teste.com" )
+      User.create!(name: "Joana", email: "joana@teste.com")
     end
 
     let(:questionnaire) do
-      Questionnaire.create!(name: 'Lógica', description: 'É um teste', limit_time: 2, user: user )
+      Questionnaire.create!(name: 'Lógica', description: 'É um teste', limit_time: 2, user: user)
     end
 
     context 'with valid params' do

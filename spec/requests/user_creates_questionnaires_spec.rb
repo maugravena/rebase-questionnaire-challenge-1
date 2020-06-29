@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'users can create questionnaires' do
   context '#create' do
     let(:user) do
-      User.create!(name: "Joana", email: "joana@teste.com" )
+      User.create!(name: "Joana", email: "joana@teste.com")
     end
 
     let(:questionnaire_params) do

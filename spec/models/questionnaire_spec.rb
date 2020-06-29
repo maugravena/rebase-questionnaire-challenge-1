@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Questionnaire, type: :model do
   let(:user) do
-    User.create!(name: "Joana", email: "joana@teste.com" )
+    User.create!(name: "Joana", email: "joana@teste.com")
   end
 
   it 'name must be required' do

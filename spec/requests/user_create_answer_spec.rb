@@ -3,15 +3,15 @@ require 'rails_helper'
 describe 'users can create ansers' do
   context '#create' do
     let(:user) do
-      User.create!(name: "Joana", email: "joana@teste.com" )
+      User.create!(name: "Joana", email: "joana@teste.com")
     end
 
     let(:questionnaire) do
-      Questionnaire.create!(name: 'Lógica', description: 'É um teste', limit_time: 2, user: user )
+      Questionnaire.create!(name: 'Lógica', description: 'É um teste', limit_time: 2, user: user)
     end
 
     let(:questions) do
-      Question.create!(description: 'É um teste', points: 2, questionnaire: questionnaire )
+      Question.create!(description: 'É um teste', points: 2, questionnaire: questionnaire)
     end
 
     context 'with valid params' do
