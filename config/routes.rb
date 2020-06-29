@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
       resources :questionnaires, path: 'questionario'
       resources :questions, path: 'pergunta'
+      resources :answers, path: 'resposta'
     end
   end
 end
