@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rails:
+    build: .
+    command: rails s -b 0.0.0.0
+    container_name: rebase-questionnaire-challenge
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/opt/app
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+    links:
+      - db
+  db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - rebase_questionnaire_challenge_data:/var/lib/postgresql/data
+volumes:
+  rebase_questionnaire_challenge_data:
