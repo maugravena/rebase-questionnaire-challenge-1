@@ -2,23 +2,9 @@ require 'rails_helper'
 
 describe 'listing questionnaires' do
   context '#index' do
-    let(:user_params) do
-      User.create!(name: "Joana", email: "joana@teste.com")
-    end
-
     it 'returns questionnaires' do
-      questionnaire1= Questionnaire.create!(
-        name: 'Lógica',
-        description: 'É um teste',
-        limit_time: 2,
-        user: user_params
-                                            )
-      questionnaire2 = Questionnaire.create!(
-        name: 'Matematica',
-        description: 'É um teste',
-        limit_time: 2,
-        user: user_params
-                                            )
+      questionnaire1 = create(:questionnaire)
+      questionnaire2 = create(:questionnaire, name: 'questionario 2')
 
       get '/api/v1/questionario'
 
