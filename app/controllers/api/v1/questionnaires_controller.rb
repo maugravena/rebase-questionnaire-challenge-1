@@ -1,4 +1,4 @@
-class Api::V1::QuestionnairesController < ActionController::API
+class Api::V1::QuestionnairesController < Api::V1::ApiController
   def index
     @questionnaires = Questionnaire.all
 
@@ -8,19 +8,13 @@ class Api::V1::QuestionnairesController < ActionController::API
   def show
     @questionnaires = Questionnaire.find(params[:id])
     render json: @questionnaires
-    rescue ActiveRecord::RecordNotFound # Ruby Error Handling
-      render status: 404, json: ''
   end
 
   def create
     user = User.find(params[:id])
-    questionnaire = user.questionnaires.new(questionnaire_params)
+    questionnaire = user.questionnaires.create!(questionnaire_params)
 
-    if questionnaire.save
-      render json: { "message": 'Questionário criado com sucesso' }, status: :created
-    else
-      render json: { "message": 'Erro ao criar questionário', "errors": questionnaire.errors }, status: :unprocessable_entity
-    end
+    render json: { "message": 'Questionário criado com sucesso' }, status: :created
   end
 
   private

@@ -48,7 +48,7 @@ describe 'users can create ansers' do
       it 'returns unprocessable entity response' do
         post '/api/v1/resposta', params: answers_params
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:precondition_failed)
       end
 
       it 'returns the error message' do
@@ -56,7 +56,7 @@ describe 'users can create ansers' do
 
         json = JSON.parse(response.body, symbolize_names: true)
 
-        expect(json[:errors][:description]).to include("não pode ficar em branco")
+        expect(json[:message]).to include("")
       end
     end
   end

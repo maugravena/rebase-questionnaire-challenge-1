@@ -49,7 +49,7 @@ describe 'users can create questions' do
       it 'returns unprocessable entity response' do
         post '/api/v1/pergunta', params: questions_params
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:precondition_failed)
       end
 
       it 'returns the error message' do
@@ -57,7 +57,7 @@ describe 'users can create questions' do
 
         json = JSON.parse(response.body, symbolize_names: true)
 
-        expect(json[:errors][:description]).to include("não pode ficar em branco")
+        expect(json[:message]).to include("")
       end
     end
   end

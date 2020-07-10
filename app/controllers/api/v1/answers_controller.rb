@@ -1,13 +1,9 @@
-class Api::V1::AnswersController < ActionController::API
+class Api::V1::AnswersController < Api::V1::ApiController
   def create
     questions = Question.find(params[:id])
-    answer = questions.answers.new(answers_params)
+    questions.answers.create!(answers_params)
 
-    if answer.save
-      render json: { "message": 'Resposta criada com sucesso' }, status: :created
-    else
-      render json: { "message": 'Erro ao criar resposta', "errors": answer.errors }, status: :unprocessable_entity
-    end
+    render json: { "message": 'Resposta criada com sucesso' }, status: :created
   end
 
   private

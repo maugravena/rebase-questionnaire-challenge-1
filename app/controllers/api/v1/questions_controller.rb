@@ -1,13 +1,11 @@
-class Api::V1::QuestionsController < ActionController::API
+class Api::V1::QuestionsController < Api::V1::ApiController
   def create
-    questionnaire = Questionnaire.find(params[:id])
-    questions = questionnaire.questions.new(questions_params)
 
-    if questions.save
-      render json: { "message": 'Questão criado com sucesso' }, status: :created
-    else
-      render json: { "message": 'Erro ao criar a questão', "errors": questions.errors }, status: :unprocessable_entity
-    end
+    questionnaire = Questionnaire.find(params[:id])
+    questionnaire.questions.create!(questions_params)
+
+    render json: { "message": 'Questão criado com sucesso' }, status: :created
+    
   end
 
   private
