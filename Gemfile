@@ -26,6 +26,10 @@ group :development, :test do
   gem "rubocop-rails_config"
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+end
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
