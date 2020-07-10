@@ -1,7 +1,10 @@
 # README
 
+## Configuração de do Docker
+
 # Questionário Api
-Este é um desafio proposto pela empresa Rebase. 
+
+Este é um desafio proposto pela empresa Rebase.
 Nesse projeto iremos fazer uma api para criação de questionários, onde teremos uma rota para criar um usuário e este poderá criar os questionários.
 
 # Descrição
@@ -12,10 +15,11 @@ O sistema oferece uma api para inserir novos usuários e estes podem criar quest
 
 ## Tabela de Conteúdo
 
-* [Instalação](#instalacao)
-* [Documentação da API](#documentacao)
+- [Instalação](#instalacao)
+- [Documentação da API](#documentacao)
 
 ## Instalação
+
 Obs: Para esse projeto utilizei o sistema operacional MACOS Catalina.
 Usei o editor de texto Atom.
 Estamos usando a versão do Ruby 2.6.3 e usamos o rvm para fazer o controle de versões ruby,
@@ -23,45 +27,47 @@ segue a documentação: https://rvm.io/rvm/install.
 
 1. Clone o projeto.
 
-	~~~ sh
-	$ git@github.com:kellypc/rebase-rebase-questionnaire-challenge.git
-	~~~
+   ```sh
+   $ git@github.com:kellypc/rebase-rebase-questionnaire-challenge.git
+   ```
 
-2. Installe as Gems.
+2. Configure o docker
 
-	~~~ sh
-	$ bundle install
-	~~~
-	
-3. Essa api conta com testes com o rspec, para rodá-los rode no terminal.
+   `docker-compose build`
 
-	~~~ sh
-	$ rspec
-	ou
-	$ rspec ./spec/users_create_questionnaire_spec.rb
-	~~~
-	
-4. Para manter o padrão de código ruby, temos o rubocop, para executá-lo rode no terminal para ver se há alguma ofensa a ser corrigida.
+3. Para desenvolvimento
 
-	~~~ sh
-	$ rubocop
-	~~~
-  
-  ## Documentacão
-  
-  ### Criar Usuario
-  
-##### Request 
+   `docker-compose run --service-ports rails bash`
+
+4. Essa api conta com testes com o rspec, para rodá-los rode no terminal.
+
+   ```sh
+   $ bundle exec rspec
+   ou
+   $ bundle exec rspec ./spec/users_create_questionnaire_spec.rb
+   ```
+
+5. Para manter o padrão de código ruby, temos o rubocop, para executá-lo rode no terminal para ver se há alguma ofensa a ser corrigida.
+
+   ```sh
+   $ rubocop
+   ```
+
+## Documentacão
+
+### Criar Usuario
+
+##### Request
 
 ```sh
-POST  /usuario
+POST  api/v1/usuario
 ```
 
 ```sh
 Parameters:
 {
     "user": {
-        "name": "User Test", 
+        "name": "User Test",
         "email": "user@test.com",
     }
 }
@@ -76,6 +82,7 @@ status: 201 created
 ```sh
 Content-Type: "application/json"
 ```
+
 ```sh
 Body:
 {
@@ -83,23 +90,25 @@ Body:
 }
 ```
 
-   ## Listar Questionário
+## Listar Questionário
 
-  ##### Request 
+##### Request
 
 ```sh
-GET  /questionario
+GET  api/v1/questionario
 ```
+
 ```sh
 Parameters:
 {
     "questionnaire": {
-        "name": "Lógica", 
+        "name": "Lógica",
         "description": "É um teste",
         "limit_time": 2
     }
 }
 ```
+
 ```sh
 Body:
 {
@@ -112,18 +121,20 @@ Body:
     "updated_at": "2020-06-29T12:41:40.621Z"
 }
 ```
-  ### Criar Questionário
-  
-##### Request 
+
+### Criar Questionário
+
+##### Request
 
 ```sh
-POST  /questionario
+POST  api/v1/questionario
 ```
+
 ```sh
 Parameters:
 {
     "questionnaire": {
-        "name": "Lógica", 
+        "name": "Lógica",
         "description": "Teste o seu conhecimento",
         "limit_time": 2
     }
@@ -139,6 +150,7 @@ status: 201 created
 ```sh
 Content-Type: "application/json"
 ```
+
 ```sh
 Body:
 {
@@ -147,11 +159,11 @@ Body:
 ```
 
 ### Criar Pergunta
-  
-#### Request 
+
+#### Request
 
 ```sh
-POST  /pergunta
+POST  api/v1/pergunta
 ```
 
 ```sh
@@ -173,18 +185,20 @@ status: 201 created
 ```sh
 Content-Type: "application/json"
 ```
+
 ```sh
 Body:
 {
     "message": 'Pergunta criada com sucesso'
 }
 ```
+
 ### Criar Resposta
-  
-#### Request 
+
+#### Request
 
 ```sh
-POST  /resposta
+POST  api/v1/resposta
 ```
 
 ```sh
@@ -209,5 +223,5 @@ Content-Type: "application/json"
 
 Body:
 {
-    "message": 'Resposta criada com sucesso'
+"message": 'Resposta criada com sucesso'
 }
