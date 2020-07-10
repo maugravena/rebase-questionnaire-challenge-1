@@ -7,6 +7,7 @@ default: &default
   username: <%= ENV.fetch("POSTGRES_USER") %>
   password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
   host: <%= ENV.fetch("POSTGRES_HOST") %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -15,3 +16,7 @@ development:
 test:
   <<: *default
   database: rebase_questionnarie_challenge_test
+
+production:
+  <<: *default
+  database: rebase_questionnarie_challenge_production
