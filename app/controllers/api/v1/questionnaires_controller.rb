@@ -7,6 +7,7 @@ class Api::V1::QuestionnairesController < Api::V1::ApiController
 
   def show
     @questionnaires = Questionnaire.find(params[:id])
+    
     render json: @questionnaires
   end
 

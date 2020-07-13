@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :questionnaire do
-    name { 'Joao Henrique'}
+    name { 'Lógica'}
     description { 'questionario de teste.'}
     limit_time { 5 }
 
