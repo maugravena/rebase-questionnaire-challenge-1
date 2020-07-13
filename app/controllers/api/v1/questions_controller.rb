@@ -1,4 +1,10 @@
 class Api::V1::QuestionsController < Api::V1::ApiController
+  def show
+    @question = Question.find(params[:id])
+
+    render json: @question.to_json(include: :answers)
+  end
+
   def create
 
     questionnaire = Questionnaire.find(params[:id])
