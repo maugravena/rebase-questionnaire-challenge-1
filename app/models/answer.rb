@@ -1,5 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  validates :description, :correct, presence: true
+  validates :description, presence: true
+  validates :correct, inclusion: { in: [true, false] }
 end

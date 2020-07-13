@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      questionnaire: 'questionário'
+    attributes:
+      questionnaire:
+        name: 'nome'
+        description: 'descrição'
+        limit_time: 'tempo limite'
+
