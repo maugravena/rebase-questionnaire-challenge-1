@@ -57,7 +57,7 @@ describe 'users can create questions' do
 
         json = JSON.parse(response.body, symbolize_names: true)
 
-        expect(json[:message]).to include("")
+        expect(json[:message]).to eq("A validação falhou: descrição não pode ficar em branco")
       end
     end
   end
