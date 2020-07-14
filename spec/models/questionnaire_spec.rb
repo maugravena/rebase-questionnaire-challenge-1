@@ -23,10 +23,10 @@ RSpec.describe Questionnaire, type: :model do
   end
 
   it 'name must be unique' do
-    questionnaire1 = create(:questionnaire, name: 'Lógica',description: 'Esse é um teste',
-                                          limit_time: 2)
-    questionnaire2 = build(:questionnaire, name: 'Lógica', description: 'Esse é um teste', 
-                            limit_time: 2)
+    create(:questionnaire, name: 'Lógica', description: 'Esse é um teste',
+           limit_time: 2)
+    questionnaire2 = build(:questionnaire, name: 'Lógica', description: 'Esse é um teste',
+                           limit_time: 2)
 
     expect(questionnaire2).to_not be_valid
     expect(questionnaire2.errors[:name]).to include("should be unique")

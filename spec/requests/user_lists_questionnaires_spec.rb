@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'listing questionnaires' do
   context '#index' do
-    let(:questionnaire1) {create(:questionnaire)}
-    let(:questionnaire2) {create(:questionnaire, name: 'questionario 2')}
+    let(:questionnaire1) { create(:questionnaire) }
+    let(:questionnaire2) { create(:questionnaire, name: 'questionario 2') }
 
     it 'returns questionnaires' do
       get '/api/v1/questionario'
