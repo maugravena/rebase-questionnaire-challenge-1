@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :answer do
-    description { 'Resposta teste.'}
+    description { 'Resposta teste.' }
     correct { true }
 
     question

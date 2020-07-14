@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe 'listing questionnaires' do
   context '#index' do
+<<<<<<< HEAD
+=======
+    let(:questionnaire1) { create(:questionnaire) }
+    let(:questionnaire2) { create(:questionnaire, name: 'questionario 2') }
+
+>>>>>>> daf3d601f608cb05b53826e4d0ac13e4a7851713
     it 'returns questionnaires' do
       questionnaire1 = create(:questionnaire)
       questionnaire2 = create(:questionnaire, name: 'questionario 2')
