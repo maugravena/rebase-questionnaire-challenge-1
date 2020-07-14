@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :question do
-    description { 'Questão teste'}
+    description { 'Questão teste' }
     points { 5 }
 
     questionnaire

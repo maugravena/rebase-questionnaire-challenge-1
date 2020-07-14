@@ -14,7 +14,7 @@ describe 'user can see question details' do
     it 'return the question details' do
       answer_first = create(:answer, question: question)
       answer_second = create(:answer, question: question)
-      
+
       get "/api/v1/pergunta/#{question.id}"
 
       json = JSON.parse(response.body, symbolize_names: true)

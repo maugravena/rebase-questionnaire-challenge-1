@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe 'users can create questions' do
   context '#create' do
-
-    let(:questionnaire) {create(:questionnaire)}
+    let(:questionnaire) { create(:questionnaire) }
 
     context 'with valid params' do
       let(:questions_params) do
