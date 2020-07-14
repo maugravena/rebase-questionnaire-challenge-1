@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe 'listing questionnaires' do
   context '#index' do
-    let(:questionnaire1) {create(:questionnaire)}
-    let(:questionnaire2) {create(:questionnaire, name: 'questionario 2')}
-
     it 'returns questionnaires' do
+      questionnaire1 = create(:questionnaire)
+      questionnaire2 = create(:questionnaire, name: 'questionario 2')
       get '/api/v1/questionario'
 
       json_response = JSON.parse(response.body, symbolize_names: true)
