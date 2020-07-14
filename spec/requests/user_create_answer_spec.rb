@@ -45,7 +45,7 @@ describe 'users can create ansers' do
         }
       end
 
-      it 'returns unprocessable entity response' do
+      it 'returns precondition_failed response' do
         post '/api/v1/resposta', params: answers_params
 
         expect(response).to have_http_status(:precondition_failed)

@@ -26,7 +26,7 @@ describe 'users can see questionnaire details' do
       json = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to have_http_status(:not_found)
-      expect(json[:message]).to eq("Couldn't find Questionnaire with 'id'=0")
+      expect(json[:message]).to eq("Registro não encontrado")
     end
   end
 end
