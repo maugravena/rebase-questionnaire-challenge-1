@@ -11,7 +11,7 @@ module ExceptionHandler
     end
 
     rescue_from ActiveRecord::RecordNotFound do |e| # Ruby Error Handling
-      render json: { message: e.message }, status: :not_found
+      render json: { message: 'Registro não encontrado' }, status: :not_found
     end
   end
 end

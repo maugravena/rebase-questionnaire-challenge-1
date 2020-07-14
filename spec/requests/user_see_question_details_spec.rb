@@ -6,7 +6,7 @@ describe 'user can see question details' do
 
 
     it 'returns success response' do
-      get api_v1_question_path(question)
+      get "/api/v1/pergunta/#{question.id}"
 
       expect(response).to have_http_status(:ok)
     end
@@ -15,7 +15,7 @@ describe 'user can see question details' do
       answer_first = create(:answer, question: question)
       answer_second = create(:answer, question: question)
       
-      get api_v1_question_path(question.id)
+      get "/api/v1/pergunta/#{question.id}"
 
       json = JSON.parse(response.body, symbolize_names: true)
 
@@ -27,12 +27,12 @@ describe 'user can see question details' do
     end
 
     it 'invalid id returns 404' do
-      get api_v1_question_path(0)
+      get "/api/v1/pergunta/#{0}"
 
       json = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to have_http_status(:not_found)
-      expect(json[:message]).to eq("Couldn't find Question with 'id'=0")
+      expect(json[:message]).to eq("Registro não encontrado")
     end
   end
 end

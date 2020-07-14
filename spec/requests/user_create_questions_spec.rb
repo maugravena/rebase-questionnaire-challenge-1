@@ -46,7 +46,7 @@ describe 'users can create questions' do
         }
       end
 
-      it 'returns unprocessable entity response' do
+      it 'returns precondition failed response' do
         post '/api/v1/pergunta', params: questions_params
 
         expect(response).to have_http_status(:precondition_failed)
